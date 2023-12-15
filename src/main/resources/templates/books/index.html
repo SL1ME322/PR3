@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Libro - Your Book Library</title>
+
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="container">
+
+<!-- Bootstrap-styled header -->
+<div class="jumbotron">
+    <a th:href="@{/books}" style="text-decoration: none; color: inherit;">
+        <h1 class="display-4">Libro - Ваша Библиотека</h1>
+        <p class="lead">Читайте книги с нами!</p>
+    </a>
+</div>
+
+
+<!-- Your existing HTML content -->
+
+<h2>Популярные книги</h2>
+<ul class="list-group">
+    <li th:each="book : ${books}" class="list-group-item">
+        <a th:href="@{/books/{id}(id=${book.id})}">
+            <span th:text="${book.getName()}"></span> ,автор -  <span th:text="${book.getAuthor()}"></span>
+        </a>
+    </li>
+</ul>
+<h2>Популярные авторы:</h2>
+<ul class="list-group">
+    <li th:each="author : ${authors}" class="list-group-item">
+        <a th:href="@{/books/authors/{authorId}(authorId=${author.id})}">
+            <span th:text="${author.getName()}"></span>
+        </a>
+    </li>
+</ul>
+<h2>Доступные библиотеки:</h2>
+<ul class="list-group">
+    <li th:each="library : ${libraries}" class="list-group-item">
+        <a th:href="@{/books/libraries/{libraryId}(libraryId=${library.libraryId})}">
+            <span th:text="${library.getName()}"></span>
+        </a>
+    </li>
+</ul>
+<h2>Издатели:</h2>
+<ul class="list-group">
+    <li th:each="publisher : ${publishers}" class="list-group-item">
+        <a th:href="@{/books/publishers/{publisherId}(publisherId=${publisher.publisherId})}">
+            <span th:text="${publisher.getName()}"></span>
+        </a>
+    </li>
+</ul>
+<h2>Недавние обзоры на книги:</h2>
+<ul class="list-group">
+    <li th:each="review : ${reviews}" class="list-group-item">
+        <a th:href="@{/books/reviews/{reviewId}(reviewId=${review.reviewId})}">
+            <span th:text="${review.getBook()}"></span>
+        </a>
+    </li>
+</ul>
+<a class="btn btn-primary" href="/books/new">Создать новую книгу</a>
+<a class="btn btn-primary" href="/books/newAuthor">Создать нового автора</a>
+<a class="btn btn-primary" href="/books/newLibrary">Создать новой библиотеки</a>
+<a class="btn btn-primary" href="/books/newPublisher">Создать нового издателя</a>
+<a class="btn btn-primary" href="/books/newReview">Создать новый отзыв</a>
+
+
+</body>
+</html>
