@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+ <form th:method="PATCH" th:action="@{/books/authors/{adminId}(adminId = ${author.getId()})}" th:object="${author}">
+    <label for="name">Имя:</label>
+    <input type="text" id="name"   th:field="*{name}" required/>
+     <label for="author">Фамилия:</label>
+     <input type="text" id="author"   th:field="*{surname}" required/>
+
+    <label for="year">Годы жизни:</label>
+    <input type="text" id="year"   th:field="*{lifeYears}" required/>
+
+
+
+    <label for="description">Описание:</label>
+    <textarea id="description"   th:field="*{description}" required></textarea>
+    <input type="submit" value="Update">
+
+
+</form>
+</body>
+</html>

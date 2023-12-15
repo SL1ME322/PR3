@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Review</title>
+</head>
+<body>
+<div class="jumbotron">
+    <a th:href="@{/books}" style="text-decoration: none; color: inherit;">
+        <h1 class="display-4">Libro - Ваша Библиотека</h1>
+        <p class="lead">Читайте книги с нами!</p>
+    </a>
+</div>
+<h1>Edit Review</h1>
+
+<form th:method="PATCH" th:action="@{/books/reviews/{reviewId}(reviewId=${review.reviewId})}" th:object="${review}">
+    <!-- Display existing review information -->
+    <label for="book">Book:</label>
+    <input type="text" id="book" th:field="*{book}" required/>
+
+    <label for="author">Author:</label>
+    <input type="text" id="author" th:field="*{author}" required/>
+
+    <label for="rating">Rating:</label>
+    <input type="number" id="rating" th:field="*{rating}" required/>
+
+    <label for="comment">Comment:</label>
+    <textarea id="comment" th:field="*{comment}" required></textarea>
+
+    <label for="date">Date:</label>
+    <input type="date" id="date" th:field="*{date}" required/>
+
+    <!-- Submit the form to update the review -->
+    <input type="submit" value="Update Review"/>
+</form>
+</body>
+</html>
