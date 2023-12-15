@@ -41,7 +41,7 @@ public class AuthorController {
     @DeleteMapping("/author/{id}")
     public String deleteAuthor(@PathVariable("id") int id) {
         authorDao.delete(id);
-        return "redirect:/books"; // или другой URL, куда вы хотите перенаправить после удаления
+        return "redirect:/books";
     }
     @GetMapping("/newAuthor")
     public String newAuthor(@ModelAttribute("author") AuthorModel author){

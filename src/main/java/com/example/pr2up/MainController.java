@@ -41,7 +41,7 @@ public class MainController {
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id,Model model){
-        // Вывод определенного пользователя
+
         model.addAttribute("book", bookDao.get(id));
 
         return "books/show";

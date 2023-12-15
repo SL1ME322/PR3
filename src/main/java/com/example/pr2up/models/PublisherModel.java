@@ -7,9 +7,9 @@ public class PublisherModel {
     private String phoneNumber;
     private String website;
 
-    // Конструкторы
+
     public PublisherModel() {
-        // Пустой конструктор
+
     }
 
     public PublisherModel(int publisherId, String name, String address, String phoneNumber, String website) {

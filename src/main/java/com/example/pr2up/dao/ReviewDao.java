@@ -18,7 +18,7 @@ public class ReviewDao {
     }
 
     public ReviewModel get(int id) {
-        // Вернуть объект ReviewModel с заданным ID или null, если не найден
+
         return reviews.stream().filter(review -> review.getReviewId() == id).findFirst().orElse(null);
     }
 

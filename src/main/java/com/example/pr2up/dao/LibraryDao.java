@@ -18,7 +18,7 @@ public class LibraryDao implements Dao<LibraryModel>{
 
     @Override
     public LibraryModel get(int id) {
-        // Вернуть объект LibraryModel с заданным ID или null, если не найден
+
         return libraries.stream().filter(library -> library.getLibraryId() == id).findFirst().orElse(null);
     }
 

@@ -8,9 +8,9 @@ public class LibraryModel {
     private int capacity;
     private String openingHours;
 
-    // Конструкторы
+
     public LibraryModel() {
-        // Пустой конструктор
+
     }
 
     public LibraryModel(int libraryId, String name, String address, String librarian, int capacity, String openingHours) {

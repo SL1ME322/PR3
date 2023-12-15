@@ -17,7 +17,7 @@ public class PublisherDao {
     }
 
     public PublisherModel get(int id) {
-        // Вернуть объект PublisherModel с заданным ID или null, если не найден
+
         return publishers.stream().filter(publisher -> publisher.getPublisherId() == id).findFirst().orElse(null);
     }
 

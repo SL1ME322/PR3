@@ -13,9 +13,8 @@ public class ReviewModel {
     private String comment;
     private LocalDate date;
 
-    // Конструкторы
-    public ReviewModel() {
-        // Пустой конструктор
+     public ReviewModel() {
+
     }
 
     public ReviewModel(int reviewId, String book, String author, int rating, String comment, LocalDate date) {

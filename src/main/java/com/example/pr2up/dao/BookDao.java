@@ -18,7 +18,7 @@ public class BookDao implements Dao<BookModel>{
 
     @Override
     public BookModel get(int id) {
-        // Вернуть объект BookModel с заданным ID или null, если не найден
+
         return books.stream().filter(book -> book.getId() == id).findFirst().orElse(null);
     }
 
