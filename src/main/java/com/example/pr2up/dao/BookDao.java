@@ -15,13 +15,10 @@ public class BookDao implements Dao<BookModel>{
         books.add(new BookModel(++BOOKS_COUNT,"Ревизор", 1836, "Гоголь", "description"));
         books.add(new BookModel(++BOOKS_COUNT, "Мертвые души", 1836, "Гоголь", "description"));
     }
-
     @Override
     public BookModel get(int id) {
-
         return books.stream().filter(book -> book.getId() == id).findFirst().orElse(null);
     }
-
     @Override
     public List<BookModel> getAll() {
         return books;
