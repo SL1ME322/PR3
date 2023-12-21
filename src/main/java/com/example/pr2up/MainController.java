@@ -41,31 +41,43 @@ public class MainController {
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id,Model model){
+
         model.addAttribute("book", bookDao.get(id));
+
         return "books/show";
     }
+
     @GetMapping("/new")
     public String newBook(@ModelAttribute("book") BookModel book){
+
         return "books/new";
     }
+
+
+
     @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable("id") int id){
         model.addAttribute("book",bookDao.get(id));
         return "books/edit";
     }
+
     @PatchMapping("/{id}")
     public String update(@ModelAttribute("book") BookModel book, @PathVariable("id") int id){
         bookDao.update(id,book);
         return "redirect:/books";
     }
+
     @PostMapping()
     public String create(@ModelAttribute("book") BookModel bookModel){
         bookDao.save(bookModel);
         return "redirect:/books";
     }
+
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") int id){
         bookDao.delete(id);
         return "redirect:/books";
     }
+
+
 }
